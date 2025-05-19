@@ -1,0 +1,34 @@
+# ============================
+# Java + Maven + Eclipse Setup
+# ============================
+
+# Maven target build folder
+/target/
+
+# Logs
+logs/
+*.log
+
+# Eclipse-specific files
+.classpath
+.project
+.settings/
+
+# IntelliJ / JetBrains IDEs
+.idea/
+*.iml
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Docker
+**/.env
+docker-compose.override.yml
+
+# JADE and external JARs (optional: if you want to keep jade.jar out of Git)
+# lib/*.jar
+
+# Scripts compiled artifacts (just in case)
+*.class
+*.swp

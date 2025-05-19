@@ -1,0 +1,43 @@
+jade:
+  main-container:
+    host: localhost
+    port: 7890  # Use a port that's not in use
+  services:
+    monitor: monitoring-service
+    analyze: analysis-service
+    respond: response-service
+
+metrics:
+  sample-interval-ms: 5000  # 5 seconds between metrics collection
+  packet-buffer-size: 65536  # Packet capture buffer size
+  network-interface: auto    # 'auto' or specific interface name
+
+detection:
+  window-size: 100  # How many metrics to keep in sliding window
+  threshold-score: 0.7  # Anomaly score threshold (0.0-1.0)
+  algorithms:
+    - type: statistical
+      enabled: true
+    - type: threshold
+      enabled: true
+    - type: ml
+      enabled: false
+      model-path: "models/anomaly_model.pmml"
+
+response:
+  email:
+    enabled: true
+    smtp-host: smtp.gmail.com
+    smtp-port: 587
+    username: "rjhoussam55@gmail.com"  # Use a real Gmail address
+    password: "cgvl yipd pflj qaxy"    # Create an app password in Google Account
+    to: "rjilihoussam55@gmail.com"
+  firewall:
+    enabled: true
+    platform: linux                    # 'windows', 'linux', or 'macos'
+    block-script: "scripts/block_ip.sh"
+  siem:
+    enabled: true
+    type: elasticsearch                # 'elasticsearch', 'splunk', or 'custom'
+    endpoint: "http://localhost:9200/security/_doc"
+    api-key: ""                        # Optional API key
